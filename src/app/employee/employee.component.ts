@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { Employee } from "../Employee";
+import { ERole } from '../ERole';
 
 @Component({
   selector: 'app-employee',
@@ -9,11 +10,13 @@ import { Employee } from "../Employee";
 })
 export class EmployeeComponent implements OnInit {
 
-  display='none';
+  display = "none";
+  employees: Employee[] = [];
 
   constructor() { }
 
   ngOnInit() {
+    this.getEmployees();
   }
 
   showForm() : void {
@@ -25,8 +28,12 @@ export class EmployeeComponent implements OnInit {
     }
   }
 
-  add() : void {
+  getEmployees() {
+    console.log(this.employees);
+  }
 
+  add(firstName: string, lastName: string, role: ERole, startDate: Date) : void {
+    this.employees.push({firstName: firstName, lastName: lastName, role: role, startDate: startDate});
   }
 
 }

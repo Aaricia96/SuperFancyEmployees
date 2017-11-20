@@ -1,7 +1,7 @@
 import { ERole } from "./ERole";
 
 export class Employee {
-    id : number;
+    //id : number;
     firstName: string;
     lastName: string;
     startDate: Date;
