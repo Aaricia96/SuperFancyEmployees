@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { Employee } from "../Employee";
-import { EmployeeService } from '../employee.service';
+import { ERole } from '../ERole';
 
 @Component({
   selector: 'app-employee',
@@ -13,7 +13,7 @@ export class EmployeeComponent implements OnInit {
   display = "none";
   employees: Employee[] = [];
 
-  constructor(private employeeService: EmployeeService) { }
+  constructor() { }
 
   ngOnInit() {
     this.getEmployees();
@@ -28,20 +28,12 @@ export class EmployeeComponent implements OnInit {
     }
   }
 
-  getEmployees() : void {
-    //console.log(this.employees);
-    this.employeeService.getEmployees()
-    .subscribe( e => this.employees = e.data);
+  getEmployees() {
     console.log(this.employees);
   }
 
-
-
-  addEmployee(id : number,
-    first_name: string,
-    last_name: string,
-    avatar: string) : void {
-    this.employees.push({id: id, first_name: first_name, last_name: last_name, avatar: avatar});
+  add(firstName: string, lastName: string, role: ERole, startDate: Date) : void {
+    this.employees.push({firstName: firstName, lastName: lastName, role: role, startDate: startDate});
   }
 
 }
