@@ -35,12 +35,11 @@ export class EmployeeComponent implements OnInit {
     console.log(this.employees);
   }
 
-
-
   addEmployee(id : number,
-    first_name: string,
-    last_name: string,
-    avatar: string) : void {
+              first_name: string,
+              last_name: string,
+              avatar: string) : void {
+
     this.employees.push({id: id, first_name: first_name, last_name: last_name, avatar: avatar});
   }
 
