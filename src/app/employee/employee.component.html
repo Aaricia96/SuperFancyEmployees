@@ -35,7 +35,7 @@
                 <td>{{employee.last_name}}</td>
                 <td><img src={{employee.avatar}}></td>
                 <td><a routerLink="/detail/{{employee.id}}">Pas aan</a></td>
-                <td><a href="url"> Verwijder</a></td>
+                <td><a (click)="delete(employee)" src="url"><font color="#ff3385">Verwijder</font></a></td>
             </tr>
         </table>
         <br/>
