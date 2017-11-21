@@ -8,6 +8,7 @@ import { AppRoutingModule } from './/app-routing.module';
 import { EmployeeService } from './employee.service';
 import { HttpClientModule }    from '@angular/common/http';
 import { EmployeeDetailComponent } from './employee-detail/employee-detail.component'; 
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -19,7 +20,8 @@ import { EmployeeDetailComponent } from './employee-detail/employee-detail.compo
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [EmployeeService],
   bootstrap: [AppComponent]

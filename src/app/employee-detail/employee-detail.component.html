@@ -1,3 +1,37 @@
-<p>
-  employee-detail works!
-</p>
+<div class="row">
+  <div class="col-md-2"></div>
+  <div class="col-md-10">
+      <br/><br/>
+      <h1>Werknemer details</h1>
+  </div>
+</div>
+
+<br/><br/>
+
+<div *ngIf="employee">
+  <div class="row" >
+      <div class="col-md-2"></div>
+      <div class="col-md-10">
+          <h4><font color="#ff3385">{{employee.first_name}} {{employee.last_name}}</font></h4>
+      </div>
+  </div>
+  <div class="row">
+    <div class="col-md-2"></div>
+    <div class="col-md-10">
+        <p>Werknemernummer: {{employee.id}}</p>
+        Voornaam: <input [(ngModel)]="employee.first_name" placeholder="name"/>
+        Achternaam: <input [(ngModel)]="employee.last_name" placeholder="name"/>
+        <br/><br/><img src={{employee.avatar}}>
+    </div>
+  </div>
+  <br/>
+  <div class="row">
+    <div class="col-md-2"></div>
+    <div class="col-md-10">
+        <button (click)="goBack()">Terug</button>
+        <button (click)="save()">Opslaan</button>
+    </div>
+  </div>
+ 
+</div>
+  

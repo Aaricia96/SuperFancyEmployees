@@ -25,6 +25,11 @@ export class EmployeeService {
     return result;
   }
 
+  getEmployee(id: number) : Observable<any> {
+    let result = this.http.get<any>(this.apiUrl + "users/" + id);
+    return result;
+  } 
+
   editEmployee(employee: any) : Observable<any> {
     let result = this.http.put<any>(this.apiUrl + "users/" + employee.id, employee, httpOptions);
     return result
