@@ -11,7 +11,7 @@ import { EmployeeService } from '../employee.service';
 export class EmployeeAddComponent implements OnInit {
 
   addedEmployee: any;
-  
+
   constructor(private employeeService: EmployeeService) { }
 
   ngOnInit() {
@@ -19,7 +19,7 @@ export class EmployeeAddComponent implements OnInit {
 
   addEmployee(id : number, first_name: string, last_name: string, avatar: string) : void {
     let obj = { name: first_name, job: last_name }
-    this.employeeService.addEmployee(obj).subscribe( r => this.addedEmployee = r);
+    this.employeeService.addEmployee(obj).subscribe(r => this.addedEmployee = r);
   }
 
 }
