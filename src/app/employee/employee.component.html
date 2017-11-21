@@ -25,10 +25,12 @@
                 <p>{{employee.first_name}}</p>
            </div>
        </div>
+       <button *ngIf="page!==1">Terug</button>
+       <button *ngIf="page!==nrPages">Volgende</button>
     </div>
 </div>
 
-
+<br/><br/>
 
 <div class="row">
   <div class="col-md-2"></div>
