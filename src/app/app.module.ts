@@ -7,15 +7,11 @@ import { EmployeeComponent } from './employee/employee.component';
 import { AppRoutingModule } from './/app-routing.module';
 import { EmployeeService } from './employee.service';
 import { HttpClientModule }    from '@angular/common/http';
-<<<<<<< HEAD
-import { EmployeeDetailComponent } from './employee-detail/employee-detail.component';
-import { ToasterService } from './toaster.service';
-import { ToastsComponent } from './toasts/toasts.component'; 
-=======
 import { EmployeeDetailComponent } from './employee-detail/employee-detail.component'; 
 import { FormsModule } from '@angular/forms';
 import { EmployeeAddComponent } from './employee-add/employee-add.component';
->>>>>>> 45abfecd3ffe1cc3425390f0d396d55c9be75643
+import { ToastsComponent } from './toasts/toasts.component';
+import { ToasterService } from './toaster.service';
 
 
 @NgModule({
@@ -23,11 +19,8 @@ import { EmployeeAddComponent } from './employee-add/employee-add.component';
     AppComponent,
     EmployeeComponent,
     EmployeeDetailComponent,
-<<<<<<< HEAD
+    EmployeeAddComponent,
     ToastsComponent
-=======
-    EmployeeAddComponent
->>>>>>> 45abfecd3ffe1cc3425390f0d396d55c9be75643
   ],
   imports: [
     BrowserModule,
