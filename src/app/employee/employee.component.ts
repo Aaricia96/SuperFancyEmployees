@@ -14,6 +14,7 @@ export class EmployeeComponent implements OnInit {
   employees: Employee[] = [];
   page: number;
   nrPages: number;
+  addedEmployee: any;
 
   constructor(private employeeService: EmployeeService) { }
 
@@ -37,7 +38,15 @@ export class EmployeeComponent implements OnInit {
   }
 
   addEmployee(id : number, first_name: string, last_name: string, avatar: string) : void {
-    this.employees.push({id: id, first_name: first_name, last_name: last_name, avatar: avatar});
-}
+
+    let obj = {
+      name: first_name,
+      job: last_name
+    }
+
+    this.employeeService.addEmployee(obj).subscribe( r => this.addedEmployee = r);
+    //this.employees.push( {id: id, first_name: first_name, last_name: last_name, avatar: avatar} );
+
+  }
 
 }
