@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Employee } from './Employee';
+import { catchError, map, tap } from 'rxjs/operators';
+import { ToasterService } from './toaster.service';
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -12,7 +14,7 @@ export class EmployeeService {
 
   private apiUrl: string = "https://reqres.in/api/";
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private toasterService: ToasterService) { }
 
   addEmployee (employee: any): Observable<any> {
     let result = this.http.post<Employee>(this.apiUrl + "users", employee, httpOptions);
@@ -30,8 +32,10 @@ export class EmployeeService {
   } 
 
   editEmployee(employee: any) : Observable<any> {
-    let result = this.http.put<any>(this.apiUrl + "users/" + employee.id, employee, httpOptions);
-    return result
+    return this.http.put<any>(this.apiUrl + "users/" + employee.id, employee, httpOptions).pipe(
+      tap(heroes => this.toasterService.add("toast-succes", "Wijzigen van werknemer succesvol!")),
+      catchError(this.toasterService.add("toast-danger", "Er is iets foutgegaan tijdens het wijzigen van deze werknemer!"))
+    );
   }
 
   deleteEmployee(id : number) : Observable<any> {

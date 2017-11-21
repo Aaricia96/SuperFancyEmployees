@@ -11,17 +11,7 @@ export class ToastsComponent implements OnInit {
   constructor(private toasterService: ToasterService) { }
 
   ngOnInit() {
-    this.toggleToaster("toast-danger", "Dit is gevaarlijk!");
-  }
-
-  toggleToaster(messageType : string, message: string) : void {
-    let x = document.getElementById(messageType);
-    if (x.style.display === "none") {
-        x.style.display = "block";
-        x.textContent = message;
-    } else {
-        x.style.display = "none";
-    }
+    this.toasterService.add("toast-danger", "Dit is gevaarlijk!");
   }
 
 }
