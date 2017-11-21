@@ -26,7 +26,11 @@ export class EmployeeDetailComponent implements OnInit {
 
   getEmployee() : void {
     const id = +this.route.snapshot.paramMap.get('id');
+<<<<<<< HEAD
     //this.employeeService.getEmployee(id).subscribe(employee => this.employee = employee);
+=======
+    this.employeeService.getEmployee(id).subscribe(employee => this.employee = employee.data);
+>>>>>>> 45abfecd3ffe1cc3425390f0d396d55c9be75643
   }
 
   goBack(): void {
@@ -34,7 +38,8 @@ export class EmployeeDetailComponent implements OnInit {
   }
 
  save(): void {
-    this.employeeService.updateEmployee(this.employee).subscribe(() => this.goBack());
+    let obj = { name: this.employee.first_name, job: this.employee.last_name }
+    this.employeeService.editEmployee(obj).subscribe(() => this.goBack());
   }
 
 }
