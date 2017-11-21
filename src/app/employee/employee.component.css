@@ -33,8 +33,10 @@ tr:nth-child(even) {
     background-color: #ccffff;
 } */
 
-
-
 a { 
     color: #ff3385;
+}
+
+button:disabled {
+    color: #ffbdda;
 }

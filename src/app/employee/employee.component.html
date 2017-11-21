@@ -34,24 +34,23 @@
                 <td>{{employee.first_name}}</td>
                 <td>{{employee.last_name}}</td>
                 <td><img src={{employee.avatar}}></td>
-                <td><a href="url">Pas aan</a></td>
+                <td><a routerLink="/detail/{{employee.id}}">Pas aan</a></td>
                 <td><a href="url"> Verwijder</a></td>
             </tr>
         </table>
         <br/>
-        <div *ngIf="page!==1">
-            <button style="float: right;" (click)="nextPage(page-1)" type="button">Terug</button>
-        </div>
-        <div *ngIf="page===1">
-            <button style="float: right;" (click)="nextPage(page-1)" type="button" disabled>Terug</button>
-        </div>
         <div *ngIf="page!==nrPages">
             <button style="float: right;" (click)="nextPage(page+1)" type="button">Volgende</button>
         </div>
         <div *ngIf="page===nrPages">
             <button style="float: right;" (click)="nextPage(page+1)" type="button" disabled>Volgende</button>
         </div>
-       
+        <div *ngIf="page!==1">
+            <button style="float: right;" (click)="nextPage(page-1)" type="button">Terug</button>
+        </div>
+        <div *ngIf="page===1">
+            <button style="float: right;" (click)="nextPage(page-1)" type="button" disabled>Terug</button>
+        </div>
     </div>
     <div class="col-md-2"></div>
 </div>
