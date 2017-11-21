@@ -1,9 +1,6 @@
-import { ERole } from "./ERole";
-
 export class Employee {
-    //id : number;
-    firstName: string;
-    lastName: string;
-    startDate: Date;
-    role: ERole;
+    id : number;
+    first_name: string;
+    last_name: string;
+    avatar: string;
 }

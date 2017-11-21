@@ -5,6 +5,8 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { EmployeeComponent } from './employee/employee.component';
 import { AppRoutingModule } from './/app-routing.module';
+import { EmployeeService } from './employee.service';
+import { HttpClientModule }    from '@angular/common/http'; 
 
 
 @NgModule({
@@ -14,9 +16,10 @@ import { AppRoutingModule } from './/app-routing.module';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [EmployeeService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
