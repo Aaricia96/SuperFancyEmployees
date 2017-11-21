@@ -5,15 +5,27 @@ import { of } from 'rxjs/observable/of'
 
 @Injectable()
 export class ToasterService {
-  
-  add<T>(messageType : string, message: string, result? : T) {
+
+  add(messageType : string, message: string) {
+    
     this.toggleToaster(messageType, message);
     delay(5000).then(()=> {
       this.toggleToaster(messageType);
     });
+
+    
+  }
+  
+  addError<T>(messageType : string, message: string, result? : T) {
+    
     return (error: any): Observable<T> => {
+      this.toggleToaster(messageType, message);
+      delay(5000).then(()=> {
+        this.toggleToaster(messageType);
+      });
       return of (result as T);
     };
+
   }
 
   toggleToaster(messageType : string, message?: string) : void {
