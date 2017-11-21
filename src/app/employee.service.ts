@@ -26,4 +26,9 @@ export class EmployeeService {
     return result;
   }
 
+  getNextPage(page: number) : Observable<any> {
+    let result = this.http.get<any>(this.apiUrl + "users?page=" + page);
+    return result;
+  }
+
 }

@@ -49,4 +49,10 @@ export class EmployeeComponent implements OnInit {
 
   }
 
+  nextPage(page: number) : void {
+    this.employeeService.getNextPage(page).subscribe( e => this.employees = e.data);
+    this.employeeService.getNextPage(page).subscribe( e => this.page = e.page);
+    this.employeeService.getEmployees().subscribe( e => this.nrPages = e.total_pages);
+  }
+
 }
