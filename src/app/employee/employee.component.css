@@ -29,6 +29,12 @@ tr:nth-child(even) {
     background-color: #ffbdda;
 }
 
+/* tr:nth-child(odd) {
+    background-color: #ccffff;
+} */
+
+
+
 a { 
     color: #ff3385;
 }

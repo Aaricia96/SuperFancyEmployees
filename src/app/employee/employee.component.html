@@ -39,8 +39,19 @@
             </tr>
         </table>
         <br/>
-       <button *ngIf="page!==1" style="float: right;" (click)="nextPage(page-1)">Terug</button>
-       <button *ngIf="page!==nrPages" style="float: right;" (click)="nextPage(page+1)">Volgende</button>
+        <div *ngIf="page!==1">
+            <button style="float: right;" (click)="nextPage(page-1)" type="button">Terug</button>
+        </div>
+        <div *ngIf="page===1">
+            <button style="float: right;" (click)="nextPage(page-1)" type="button" disabled>Terug</button>
+        </div>
+        <div *ngIf="page!==nrPages">
+            <button style="float: right;" (click)="nextPage(page+1)" type="button">Volgende</button>
+        </div>
+        <div *ngIf="page===nrPages">
+            <button style="float: right;" (click)="nextPage(page+1)" type="button" disabled>Volgende</button>
+        </div>
+       
     </div>
     <div class="col-md-2"></div>
 </div>

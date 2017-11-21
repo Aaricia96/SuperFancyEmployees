@@ -19,7 +19,7 @@ export class EmployeeComponent implements OnInit {
   constructor(private employeeService: EmployeeService) { }
 
   ngOnInit() {
-    this.getEmployees();
+    this.nextPage(1);
   }
 
   showForm() : void {
@@ -29,12 +29,6 @@ export class EmployeeComponent implements OnInit {
     } else {
         x.style.display = "none";
     }
-  }
-
-  getEmployees() : void {
-    this.employeeService.getEmployees().subscribe( e => this.employees = e.data);
-    this.employeeService.getEmployees().subscribe( e => this.page = e.page);
-    this.employeeService.getEmployees().subscribe( e => this.nrPages = e.total_pages);
   }
 
   addEmployee(id : number, first_name: string, last_name: string, avatar: string) : void {
@@ -52,7 +46,7 @@ export class EmployeeComponent implements OnInit {
   nextPage(page: number) : void {
     this.employeeService.getNextPage(page).subscribe( e => this.employees = e.data);
     this.employeeService.getNextPage(page).subscribe( e => this.page = e.page);
-    this.employeeService.getEmployees().subscribe( e => this.nrPages = e.total_pages);
+    this.employeeService.getNextPage(page).subscribe( e => this.nrPages = e.total_pages);
   }
 
 }

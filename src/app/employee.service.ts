@@ -14,12 +14,6 @@ export class EmployeeService {
 
   constructor(private http: HttpClient) { }
 
-  getEmployees (): Observable<any> {
-    console.log("getEmployees called");
-    let result = this.http.get<any>(this.apiUrl + "users");
-    return result;
-  }
-
   addEmployee (employee: any): Observable<any> {
     console.log("addEmployees called");
     let result = this.http.post<Employee>(this.apiUrl + "users", employee, httpOptions);
