@@ -45,7 +45,7 @@ describe('EmployeeDetailComponent', () => {
         HttpClientModule,
         BrowserModule
       ],
-      providers: [{provide: APP_BASE_HREF, useValue : '/' }, {provide: EmployeeService, useValue: employeeServiceStub }]
+      providers: [{provide: APP_BASE_HREF, useValue : '/' }, {provide: EmployeeService, useValue: employeeServiceStub}]
     })
     .compileComponents();
   }));
@@ -62,7 +62,23 @@ describe('EmployeeDetailComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should show an employer with id 1', () => {
-    expect(component.employee.id).toEqual(1);
+  it('should show an employer with id 1', () => { 
+    let content = document.getElementById("id");
+    expect(component.employee.id).toEqual(Number(content.innerHTML));
+  });
+
+  it('should show an employer with first name Aaricia', () => { 
+    let content = document.getElementById("firstName");
+    expect(component.employee.first_name).toEqual(content.innerHTML);
+  });
+
+  it('should show an employer with last name Van Oostrom', () => { 
+    let content = document.getElementById("lastName");
+    expect(component.employee.last_name).toEqual(content.innerHTML);
+  });
+
+  it('should show an employer with last name Van Oostrom', () => { 
+    let content = document.getElementById("avatar").getAttribute('src');
+    expect(component.employee.avatar).toEqual(content);
   });
 });

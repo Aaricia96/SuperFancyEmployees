@@ -35,8 +35,10 @@ tr:nth-child(even) {
 
 a { 
     color: #ff3385;
+    cursor: pointer;
 }
 
 button:disabled {
     color: #ffbdda;
+    cursor: default;
 }

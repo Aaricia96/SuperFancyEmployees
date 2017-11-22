@@ -19,10 +19,7 @@ describe('EmployeeAddComponent', () => {
   let employeeService;
 
   beforeEach(async(() => {
-    employeeServiceStub = {
-      isLoggedIn: true,
-      user: { name: 'Test User'}
-    };
+    employeeServiceStub = {};
 
     TestBed.configureTestingModule({
       declarations: [
@@ -38,7 +35,7 @@ describe('EmployeeAddComponent', () => {
         HttpClientModule,
         BrowserModule
       ],
-      providers: [{provide: APP_BASE_HREF, useValue : '/' }, ToasterService, {provide: EmployeeService, useValue: employeeServiceStub } ]
+      providers: [{provide: APP_BASE_HREF, useValue : '/' }, {provide: EmployeeService, useValue: employeeServiceStub } ]
     })
     .compileComponents();
   }));
