@@ -8,8 +8,8 @@ import { EmployeeAddComponent } from './employee-add/employee-add.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
-import { EmployeeService } from './employee.service';
-import { ToasterService } from './toaster.service';
+import { EmployeeService } from './services/employee.service';
+import { ToasterService } from './services/toaster.service';
 describe('AppComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
