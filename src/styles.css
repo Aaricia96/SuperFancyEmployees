@@ -6,7 +6,7 @@ body {
 body {
     padding-top: 56px;
     background-image: url("unicorn.jpg");
-    background-position: 100% 100%; /*Positioning*/
+    background-position: 0% 100%; /*Positioning*/
     background-repeat: no-repeat;
     background-attachment: fixed;
 }

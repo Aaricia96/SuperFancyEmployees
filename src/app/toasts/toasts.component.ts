@@ -11,7 +11,7 @@ export class ToastsComponent implements OnInit {
   constructor(private toasterService: ToasterService) { }
 
   ngOnInit() {
-    this.toasterService.add("toast-danger", "Dit is gevaarlijk!");
+    // this.toasterService.add("toast-danger", "Dit is gevaarlijk!");
   }
 
 }
