@@ -44,6 +44,7 @@
             </tr>
         </table>
         <br/>
+        <p align="center">Pagina {{page}} van {{nrPages}}</p>
         <div *ngIf="page!==nrPages">
             <button style="float: right;" (click)="nextPage(page+1)" type="button">Volgende</button>
         </div>

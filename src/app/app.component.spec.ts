@@ -1,4 +1,4 @@
-import { TestBed, async } from '@angular/core/testing';
+import { TestBed, async, ComponentFixture } from '@angular/core/testing';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { EmployeeComponent } from './employee/employee.component';
@@ -10,7 +10,12 @@ import { HttpClientModule } from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
 import { EmployeeService } from './services/employee.service';
 import { ToasterService } from './services/toaster.service';
+import { APP_BASE_HREF } from '@angular/common';
 describe('AppComponent', () => {
+
+  let fixture: ComponentFixture<AppComponent>;
+  let app: AppComponent;
+  
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [
@@ -25,12 +30,18 @@ describe('AppComponent', () => {
         FormsModule,
         HttpClientModule,
         BrowserModule
-      ]
+      ],
+      providers: [{provide: APP_BASE_HREF, useValue : '/' }, ToasterService, EmployeeService]
     }).compileComponents();
+    
+    fixture = TestBed.createComponent(AppComponent);
+    app = fixture.debugElement.componentInstance;
   }));
   it('should create the app', async(() => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.debugElement.componentInstance;
     expect(app).toBeTruthy();
+  }));
+
+  it(`should have as title 'app'`, async(() => {
+    expect(app.title).toEqual('Super Fancy Employees');
   }));
 });
