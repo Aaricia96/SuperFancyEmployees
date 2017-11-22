@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Employee } from './Employee';
+import { Employee } from '../Employee';
 import { catchError, map, tap } from 'rxjs/operators';
 import { ToasterService } from './toaster.service';
 
