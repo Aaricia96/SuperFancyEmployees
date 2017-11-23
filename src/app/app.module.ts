@@ -13,6 +13,7 @@ import { EmployeeDetailComponent } from './employee-detail/employee-detail.compo
 import { FormsModule } from '@angular/forms';
 import { EmployeeAddComponent } from './employee-add/employee-add.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     EmployeeComponent,
     EmployeeDetailComponent,
     ToastsComponent,
-    EmployeeAddComponent
+    EmployeeAddComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
