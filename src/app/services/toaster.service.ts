@@ -45,6 +45,16 @@ export class ToasterService {
 
       this.messages.push(errorMessage);
 
+      Observable.interval(1000).subscribe(x => {
+        this.messages.forEach(element => {
+  
+          if (element.date+5000 < Date.now() ) {
+            this.messages = this.messages.filter( obj => obj !== element);
+          }
+  
+        });
+      });
+
       return of (result as T);
     };
 
