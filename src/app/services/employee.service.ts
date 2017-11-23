@@ -18,8 +18,8 @@ export class EmployeeService {
 
   addEmployee (employee: any): Observable<any> {
     return this.http.post<Employee>(this.apiUrl + "users", employee, httpOptions).pipe(
-      tap(heroes => this.toasterService.add("toast-succes", "Werknemer toegevoegd!")),
-      catchError( this.toasterService.addError("toast-danger", "Er is iets foutgegaan tijdens het toevoegen van deze werknemer!") )
+      tap(heroes => this.toasterService.add("alert alert-success", "Werknemer toegevoegd!")),
+      catchError( this.toasterService.addError("alert alert-danger", "Er is iets foutgegaan tijdens het toevoegen van deze werknemer!") )
     );
   }
 
@@ -30,22 +30,22 @@ export class EmployeeService {
 
   getEmployee(id: number) : Observable<any> {
     return this.http.get<any>(this.apiUrl + "users/" + id).pipe(
-      tap(heroes => this.toasterService.add("toast-succes", "Werknemergegevens opgehaald!")),
-      catchError( this.toasterService.addError("toast-danger", "Er is iets foutgegaan tijdens het ophalen van gegevens van deze werknemer!") )
+      tap(heroes => this.toasterService.add("alert alert-success", "Werknemergegevens opgehaald!")),
+      catchError( this.toasterService.addError("alert alert-danger", "Er is iets foutgegaan tijdens het ophalen van gegevens van deze werknemer!") )
     );
   } 
 
   editEmployee(employee: any) : Observable<any> {
     return this.http.put<any>(this.apiUrl + "users/" + employee.id, employee, httpOptions).pipe(
-      tap(heroes => this.toasterService.add("toast-succes", "Wijzigen van werknemer succesvol!")),
-      catchError( this.toasterService.addError("toast-danger", "Er is iets foutgegaan tijdens het wijzigen van deze werknemer!") )
+      tap(heroes => this.toasterService.add("alert alert-success", "Wijzigen van werknemer succesvol!")),
+      catchError( this.toasterService.addError("alert alert-danger", "Er is iets foutgegaan tijdens het wijzigen van deze werknemer!") )
     );
   }
 
   deleteEmployee(id : number) : Observable<any> {
     return this.http.delete<any>(this.apiUrl + "users/" + id).pipe(
-      tap(heroes => this.toasterService.add("toast-succes", "Gebruiker verwijderd!")),
-      catchError( this.toasterService.addError("toast-danger", "Er is iets foutgegaan tijdens het verwijderen van deze werknemer!") )
+      tap(heroes => this.toasterService.add("alert alert-success", "Gebruiker verwijderd!")),
+      catchError( this.toasterService.addError("alert alert-danger", "Er is iets foutgegaan tijdens het verwijderen van deze werknemer!") )
     );
   }
 

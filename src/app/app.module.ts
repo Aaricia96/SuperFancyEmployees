@@ -12,6 +12,7 @@ import { ToastsComponent } from './toasts/toasts.component';
 import { EmployeeDetailComponent } from './employee-detail/employee-detail.component'; 
 import { FormsModule } from '@angular/forms';
 import { EmployeeAddComponent } from './employee-add/employee-add.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { EmployeeAddComponent } from './employee-add/employee-add.component';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    BrowserAnimationsModule
   ],
   providers: [EmployeeService, ToasterService],
   bootstrap: [AppComponent]

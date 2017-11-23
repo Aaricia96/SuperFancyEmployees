@@ -1,42 +1,53 @@
-import { Injectable } from '@angular/core';
+import { Injectable, OnInit } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { delay } from 'q';
-import { of } from 'rxjs/observable/of'
+import { of } from 'rxjs/observable/of';
+import 'rxjs/add/observable/interval';
+import { Message } from '@angular/compiler/src/i18n/i18n_ast';
+import { ErrorMessage } from '../ErrorMessage';
 
 @Injectable()
 export class ToasterService {
 
-  add(messageType : string, message: string) {
-    
-    this.toggleToaster(messageType, message);
-    delay(5000).then(()=> {
-      this.toggleToaster(messageType);
-    });
+  messages : ErrorMessage[] = [];
 
+  add(type : string, message: string) {
+
+    console.log("add called");
+    
+    let errorMessage : ErrorMessage = new ErrorMessage();
+    errorMessage.messageType = type;
+    errorMessage.message = message;
+    errorMessage.date = Date.now();
+
+    this.messages.push(errorMessage);
+
+    Observable.interval(1000).subscribe(x => {
+      this.messages.forEach(element => {
+
+        if (element.date+5000 < Date.now() ) {
+          this.messages = this.messages.filter( obj => obj !== element);
+        }
+
+      });
+    });
     
   }
   
-  addError<T>(messageType : string, message: string, result? : T) {
+  addError<T>(type : string, message: string, result? : T) {
     
     return (error: any): Observable<T> => {
-      this.toggleToaster(messageType, message);
-      delay(5000).then(()=> {
-        this.toggleToaster(messageType);
-      });
+
+      let errorMessage : ErrorMessage = new ErrorMessage();
+      errorMessage.messageType = type;
+      errorMessage.message = message;
+      errorMessage.date = Date.now();
+
+      this.messages.push(errorMessage);
+
       return of (result as T);
     };
 
-  }
-
-  toggleToaster(messageType : string, message?: string) : void {
-    let x = document.getElementById(messageType);
-    if (x.style.display === "none") {
-        x.style.display = "block";
-        x.textContent = message;
-    } else {
-        x.style.display = "none";
-    }
- 
   }
 
 }

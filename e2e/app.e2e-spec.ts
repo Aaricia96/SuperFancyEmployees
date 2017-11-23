@@ -1,5 +1,5 @@
 import { AppPage } from './app.po';
-import { element, by } from 'protractor';
+import { element, by, browser } from 'protractor';
 
 import { delay } from 'q';
 
@@ -46,11 +46,9 @@ describe('super-fancy-employees add page', () => {
 
     delay(5000).then(()=> {
       element(by.id('btnAddEmployee')).click();
-      
       expect(element(by.id('toast-succes')).getText()).toEqual("Werknemer toegevoegd!");  
     });
-
-      
+    
   });
 
 });
