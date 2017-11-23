@@ -14,6 +14,7 @@ import { ToasterService } from '../services/toaster.service';
 import { EmployeeService } from '../services/employee.service';
 import { Subject } from 'rxjs/Subject';
 import { Observable } from 'rxjs/Observable';
+import { HomeComponent } from '../home/home.component';
 
 describe('EmployeeComponent', () => {
   let component: EmployeeComponent;
@@ -59,7 +60,8 @@ describe('EmployeeComponent', () => {
         EmployeeComponent,
         EmployeeDetailComponent,
         ToastsComponent,
-        EmployeeAddComponent
+        EmployeeAddComponent,
+        HomeComponent
       ],
       imports: [
         AppRoutingModule, 

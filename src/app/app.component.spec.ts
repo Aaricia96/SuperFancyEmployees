@@ -11,6 +11,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { EmployeeService } from './services/employee.service';
 import { ToasterService } from './services/toaster.service';
 import { APP_BASE_HREF } from '@angular/common';
+import { HomeComponent } from './home/home.component';
 describe('AppComponent', () => {
 
   let fixture: ComponentFixture<AppComponent>;
@@ -23,7 +24,8 @@ describe('AppComponent', () => {
         EmployeeComponent,
         EmployeeDetailComponent,
         ToastsComponent,
-        EmployeeAddComponent
+        EmployeeAddComponent,
+        HomeComponent
       ],
       imports: [
         AppRoutingModule, 

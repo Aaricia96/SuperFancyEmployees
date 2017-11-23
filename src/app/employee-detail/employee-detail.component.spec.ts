@@ -15,6 +15,7 @@ import { EmployeeService } from '../services/employee.service';
 import { Observable } from 'rxjs/Observable';
 import { Subject } from 'rxjs/Subject';
 import { Employee } from '../Employee';
+import { HomeComponent } from '../home/home.component';
 
 describe('EmployeeDetailComponent', () => {
   let component: EmployeeDetailComponent;
@@ -37,7 +38,8 @@ describe('EmployeeDetailComponent', () => {
         EmployeeComponent,
         EmployeeDetailComponent,
         ToastsComponent,
-        EmployeeAddComponent
+        EmployeeAddComponent,
+        HomeComponent
       ],
       imports: [
         AppRoutingModule, 
@@ -77,7 +79,7 @@ describe('EmployeeDetailComponent', () => {
     expect(component.employee.last_name).toEqual(content.innerHTML);
   });
 
-  it('should show an employer with last name Van Oostrom', () => { 
+  it('should show an employer with a picture', () => { 
     let content = document.getElementById("avatar").getAttribute('src');
     expect(component.employee.avatar).toEqual(content);
   });

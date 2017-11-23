@@ -12,6 +12,7 @@ import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { APP_BASE_HREF } from '@angular/common';
 import { ToasterService } from './toaster.service';
+import { HomeComponent } from '../home/home.component';
 
 describe('EmployeeService', () => {
   let toasterService;
@@ -26,7 +27,8 @@ describe('EmployeeService', () => {
         EmployeeComponent,
         EmployeeDetailComponent,
         ToastsComponent,
-        EmployeeAddComponent
+        EmployeeAddComponent,
+        HomeComponent
       ],
       imports: [
         AppRoutingModule, 
